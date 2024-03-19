@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Jalkapalloilijat</title>
+</head>
+<body>
+
+<h2>Jalkapalloilijat</h2>
+
+<div th:if="${jalkapalloilijat.empty}">
+    <p>Ei jalkapalloilijoita.</p>
+</div>
+<div th:unless="${jalkapalloilijat.empty}">
+    <ul>
+        <li th:each="jalkapalloilija : ${jalkapalloilijat}">
+            <span th:text="${jalkapalloilija.etunimi} + ' ' + ${jalkapalloilija.sukunimi}"></span>,
+            Maalit: <span th:text="${jalkapalloilija.maalit}"></span>,
+            Keltaiset kortit: <span th:text="${jalkapalloilija.keltaisetKortit}"></span>,
+            Punaiset kortit: <span th:text="${jalkapalloilija.punaisetKortit}"></span>
+            <a th:href="@{/jalkapalloilijat/delete/{id}(id=${jalkapalloilija.id})}">Poista</a>
+        </li>
+    </ul>
+</div>
+
+<a href="/jalkapalloilijat/add">Lisää uusi jalkapalloilija</a>
+
+</body>
+</html>
