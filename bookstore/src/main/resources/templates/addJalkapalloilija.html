@@ -3,17 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Lisää Jalkapalloilija</title>
+    <style>
+        .error { color: red; }
+    </style>
 </head>
 <body>
 
 <h2>Lisää uusi jalkapalloilija</h2>
 
 <form th:action="@{/jalkapalloilijat/add}" th:object="${jalkapalloilija}" method="post">
-    Etunimi: <input type="text" th:field="*{etunimi}" /><br>
-    Sukunimi: <input type="text" th:field="*{sukunimi}" /><br>
-    Maalit: <input type="number" th:field="*{maalit}" /><br>
-    Keltaiset kortit: <input type="number" th:field="*{keltaisetKortit}" /><br>
-    Punaiset kortit: <input type="number" th:field="*{punaisetKortit}" /><br>
+    <div>
+        Etunimi: <input type="text" th:field="*{etunimi}" />
+        <div class="error" th:if="${#fields.hasErrors('etunimi')}" th:errors="*{etunimi}"></div>
+    </div>
+    <div>
+        Sukunimi: <input type="text" th:field="*{sukunimi}" />
+        <div class="error" th:if="${#fields.hasErrors('sukunimi')}" th:errors="*{sukunimi}"></div>
+    </div>
+    <div>
+        Maalit: <input type="number" th:field="*{maalit}" />
+        <div class="error" th:if="${#fields.hasErrors('maalit')}" th:errors="*{maalit}"></div>
+    </div>
+    <div>
+        Keltaiset kortit: <input type="number" th:field="*{keltaisetKortit}" />
+        <div class="error" th:if="${#fields.hasErrors('keltaisetKortit')}" th:errors="*{keltaisetKortit}"></div>
+    </div>
+    <div>
+        Punaiset kortit: <input type="number" th:field="*{punaisetKortit}" />
+        <div class="error" th:if="${#fields.hasErrors('punaisetKortit')}" th:errors="*{punaisetKortit}"></div>
+    </div>
     <input type="submit" value="Lisää" />
 </form>
 

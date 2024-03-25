@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Muokkaa Jalkapalloilijaa</title>
+</head>
+<body>
+
+<h2>Muokkaa Jalkapalloilijaa</h2>
+
+<form th:action="@{/jalkapalloilijat/update/{id}(id=${jalkapalloilija.id})}" th:object="${jalkapalloilija}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    Etunimi: <input type="text" th:field="*{etunimi}" /><br>
+    Sukunimi: <input type="text" th:field="*{sukunimi}" /><br>
+    Maalit: <input type="number" th:field="*{maalit}" /><br>
+    Keltaiset kortit: <input type="number" th:field="*{keltaisetKortit}" /><br>
+    Punaiset kortit: <input type="number" th:field="*{punaisetKortit}" /><br>
+    <input type="submit" value="Tallenna muutokset" />
+</form>
+
+</body>
+</html>

@@ -18,6 +18,7 @@
             Maalit: <span th:text="${jalkapalloilija.maalit}"></span>,
             Keltaiset kortit: <span th:text="${jalkapalloilija.keltaisetKortit}"></span>,
             Punaiset kortit: <span th:text="${jalkapalloilija.punaisetKortit}"></span>
+            <a th:href="@{/jalkapalloilijat/edit/{id}(id=${jalkapalloilija.id})}">Muokkaa</a> |
             <a th:href="@{/jalkapalloilijat/delete/{id}(id=${jalkapalloilija.id})}">Poista</a>
         </li>
     </ul>
